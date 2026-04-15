@@ -19,6 +19,10 @@
   --muted: #4b5563;
   --heading: #0f172a;
   --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  --topbar-sticky-top: 14px;
+  --topbar-height: 92px;
+  --section-offset: 132px;
+  --sidebar-sticky-top: calc(var(--topbar-sticky-top) + var(--topbar-height) + 18px);
 }
 
 [data-theme="dark"] {
@@ -84,13 +88,13 @@ a {
 
 .topbar {
   position: sticky;
-  top: 0;
+  top: var(--topbar-sticky-top);
   z-index: 10;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 18px 14px;
+  gap: 24px;
+  padding: 18px 20px;
   backdrop-filter: blur(16px);
   background: color-mix(in srgb, var(--panel) 78%, transparent);
   border: 1px solid color-mix(in srgb, var(--line) 92%, transparent);
@@ -128,15 +132,22 @@ a {
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  min-width: 0;
+  width: 100%;
+  padding: 6px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--background) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
 }
 
 .topnav a {
   color: var(--muted);
   font-size: 0.95rem;
-  padding: 0.72rem 0.95rem;
+  padding: 0.8rem 1.05rem;
   border-radius: 14px;
   background: transparent;
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 
 .topnav a:hover,
@@ -201,6 +212,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
+  justify-self: end;
 }
 
 .layout {
@@ -212,9 +224,10 @@ a {
 
 .sidebar {
   position: sticky;
-  top: 92px;
+  top: var(--sidebar-sticky-top);
   align-self: start;
-  padding: 18px 16px;
+  min-height: clamp(430px, 64vh, 560px);
+  padding: 24px 18px;
   border: 1px solid var(--line);
   border-radius: 24px;
   background: color-mix(in srgb, var(--panel) 82%, transparent);
@@ -238,7 +251,7 @@ a {
 .simple-list {
   list-style: none;
   padding: 0;
-  margin: 12px 0 28px;
+  margin: 14px 0 34px;
 }
 
 .sidebar-group li + li,
@@ -250,7 +263,7 @@ a {
 .sidebar-group a {
   color: var(--muted);
   display: block;
-  padding: 0.75rem 0.9rem;
+  padding: 0.85rem 1rem;
   border-radius: 14px;
   border: 1px solid transparent;
 }
@@ -265,6 +278,10 @@ a {
 
 .content {
   max-width: 860px;
+}
+
+section[id] {
+  scroll-margin-top: var(--section-offset);
 }
 
 .section-card,
@@ -487,6 +504,7 @@ a {
   .sidebar {
     position: relative;
     top: 0;
+    min-height: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px 24px;
@@ -503,13 +521,17 @@ a {
 }
 
 @media (max-width: 780px) {
+  :root {
+    --topbar-height: 150px;
+    --section-offset: 190px;
+  }
+
   .site-shell {
     padding: 0 16px 32px;
   }
 
   .topbar {
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: 1fr;
     padding: 16px;
   }
 
@@ -520,6 +542,7 @@ a {
   .topbar-actions {
     width: 100%;
     justify-content: center;
+    justify-self: stretch;
   }
 
   .section-card,

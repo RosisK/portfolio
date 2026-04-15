@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 
-// Edit this object first when you want to personalize the site.
 const profile = {
-  name: 'Your Name',
+  name: 'Rosis Kharel',
   title: 'Computer Science Student',
   intro:
-    'I build thoughtful web experiences, explore problem solving through code, and enjoy turning class projects into things people can actually use.',
+    'I learn new tools and build useful software with the skills I develop',
   location: 'Kathmandu, Nepal',
-  email: 'you@example.com',
-  github: 'github.com/yourusername',
-  linkedin: 'linkedin.com/in/yourusername',
+  email: 'rosiskharel5@gmail.com',
+  github: 'github.com/RosisK',
+  linkedin: 'linkedin.com/in/rosiskharel',
   resumeLabel: 'Download resume',
 };
 
@@ -18,65 +17,64 @@ const sections = [
   { id: 'about', label: 'About Me' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
-  { id: 'journey', label: 'Journey' },
+  // { id: 'journey', label: 'Journey' },
   { id: 'contact', label: 'Contact' },
 ];
 
-// These small data lists keep the JSX below easier to read.
 const highlights = [
   {
-    value: '6+',
+    value: '10+',
     label: 'Projects finished',
   },
+  // {
+  //   value: '3',
+  //   label: 'Hackathons and team builds',
+  // },
   {
-    value: '3',
-    label: 'Hackathons and team builds',
-  },
-  {
-    value: '2 yrs',
+    value: '4 yrs',
     label: 'Learning by building',
   },
 ];
 
 const projects = [
   {
-    title: 'Campus Connect',
-    type: 'Full-stack student platform',
+    title: 'Windows File Manager',
+    type: 'Low Level Desktop Application',
     description:
-      'A central place for class updates, club announcements, and shared notes, designed to make student communities feel more connected.',
-    stack: ['React', 'Node.js', 'MongoDB'],
-    link: '#',
+      'A fully functional File Explorer with additional functionalities including Compression, Duplicate detection and Benchmarking.',
+    stack: ['C++', 'C# Winforms', 'Native DLL'],
+    link: 'https://github.com/RosisK/file-optimizer',
   },
   {
-    title: 'StudySprint',
-    type: 'Productivity web app',
+    title: 'Real Time Chat Application',
+    type: 'Telecommunication Web App',
     description:
-      'A focused timer and task planner that helps break study goals into short, achievable sessions with visible progress.',
-    stack: ['React', 'JavaScript', 'CSS'],
-    link: '#',
+      'A private chat application, allowing you to communicate with close friends securely.',
+    stack: ['React', 'Express.js', 'MySQL'],
+    link: 'https://github.com/RosisK/messaging-app',
   },
   {
-    title: 'Data Stories',
-    type: 'Visualization project',
+    title: 'RK Suppliers Online Store',
+    type: 'E-Commerce Web Application',
     description:
-      'A set of interactive charts that turn raw datasets into quick stories, helping non-technical users understand patterns faster.',
-    stack: ['React', 'Charts', 'APIs'],
-    link: '#',
+      'An online store website for bag wholesale store, with an aesthetic interface and smooth experience.',
+    stack: ['Next.js', 'Tailwind CSS', 'Pocketbase'],
+    link: 'https://rk-suppliers.vercel.app',
   },
 ];
 
 const skillGroups = [
   {
     title: 'Languages',
-    items: ['JavaScript', 'Python', 'Java', 'SQL'],
+    items: ['C/C++', 'Python', 'JavaScript', 'SQL'],
   },
   {
-    title: 'Frontend',
-    items: ['React', 'HTML', 'CSS', 'Responsive Design'],
+    title: 'Frameworks',
+    items: ['Next.js', 'Django', 'React', 'Tailwind'],
   },
   {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'VS Code', 'Figma'],
+    items: ['Git/GitHub', 'Linux CLI', 'Docker', 'OpenGL'],
   },
 ];
 
@@ -88,13 +86,13 @@ const milestones = [
       'Focused on refining my frontend skills and shipping projects that feel polished, useful, and easy to explain.',
   },
   {
-    year: '2025',
+    year: '2024',
     title: 'Started working with React',
     description:
       'Learned component-based thinking, state, props, and how to build interfaces that respond to real user input.',
   },
   {
-    year: '2024',
+    year: '2022',
     title: 'Found my interest in software',
     description:
       'Started with fundamentals, small coding exercises, and personal experiments that made computer science feel creative.',
@@ -102,7 +100,7 @@ const milestones = [
 ];
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('theme');
@@ -126,7 +124,7 @@ function App() {
     <div className="site-shell">
       <header className="topbar">
         <a className="brand" href="#overview" aria-label="Homepage">
-          <span className="brand-mark">&lt;/&gt;</span>
+          <span className="brand-mark">{"{}"}</span>
           <span>{profile.name}</span>
         </a>
 
@@ -143,7 +141,7 @@ function App() {
             {theme === 'light' ? 'Dark mode' : 'Light mode'}
           </button>
           <a className="topbar-cta" href="#contact">
-            Let&apos;s connect
+            Contact Me
           </a>
         </div>
       </header>
@@ -153,7 +151,7 @@ function App() {
           <p className="sidebar-label">GET STARTED</p>
           <ul className="sidebar-group">
             <li>
-              <a href="#overview">Quick Intro</a>
+              <a href="#overview">Home</a>
             </li>
             <li>
               <a href="#about">Who I Am</a>
@@ -218,12 +216,12 @@ function App() {
             </div>
             <div className="copy-card">
               <p>
-                I&apos;m interested in web development because it combines logic,
+                I'm interested in web development because it combines logic,
                 design, and communication. I like building interfaces that feel
                 calm, clear, and welcoming.
               </p>
               <p>
-                Right now, I&apos;m focused on growing my React skills, improving
+                Right now, I'm focused on growing my React skills, improving
                 how I structure projects, and learning how strong UI decisions
                 make software easier to use.
               </p>
@@ -233,7 +231,7 @@ function App() {
           <section id="projects" className="section-block">
             <div className="section-heading">
               <p className="eyebrow">Projects</p>
-              <h2>Things I&apos;ve built while learning and experimenting</h2>
+              <h2>Things I've built while learning and experimenting</h2>
             </div>
 
             <div className="project-list">
@@ -247,7 +245,7 @@ function App() {
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                  <a href={project.link}>Project link</a>
+                  <a target='blank' href={project.link}>Project link</a>
                 </article>
               ))}
             </div>
@@ -256,7 +254,7 @@ function App() {
           <section id="skills" className="section-block">
             <div className="section-heading">
               <p className="eyebrow">Skills</p>
-              <h2>Tools and topics I&apos;m building confidence with</h2>
+              <h2>Tools and topics I'm building confidence with</h2>
             </div>
 
             <div className="skills-grid">
@@ -273,10 +271,10 @@ function App() {
             </div>
           </section>
 
-          <section id="journey" className="section-block">
+          {/* <section id="journey" className="section-block">
             <div className="section-heading">
               <p className="eyebrow">Journey</p>
-              <h2>How I&apos;ve been growing as a developer</h2>
+              <h2>How I've been growing as a developer</h2>
             </div>
 
             <div className="timeline">
@@ -290,7 +288,7 @@ function App() {
                 </article>
               ))}
             </div>
-          </section>
+          </section> */}
 
           <section id="contact" className="section-block">
             <div className="section-heading">
@@ -300,13 +298,13 @@ function App() {
 
             <div className="contact-card">
               <p>
-                I&apos;m open to internships, student collaborations, and frontend
+                I'm open to internships, student collaborations, and
                 opportunities where I can keep learning while contributing.
               </p>
               <div className="contact-links">
-                <a href={`mailto:${profile.email}`}>{profile.email}</a>
-                <a href={`https://${profile.github}`}>GitHub</a>
-                <a href={`https://${profile.linkedin}`}>LinkedIn</a>
+                <a target='blank' href={`mailto:${profile.email}`}>{profile.email}</a>
+                <a target='blank' href={`https://${profile.github}`}>GitHub</a>
+                <a target='blank' href={`https://${profile.linkedin}`}>LinkedIn</a>
               </div>
               <a className="secondary-button" href="#">
                 {profile.resumeLabel}
