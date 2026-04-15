@@ -306,7 +306,7 @@ function App() {
                 <a target='blank' href={`https://${profile.github}`}>GitHub</a>
                 <a target='blank' href={`https://${profile.linkedin}`}>LinkedIn</a>
               </div>
-              <a className="secondary-button" href="#">
+              <a className="secondary-button" href={ `${import.meta.env.BASE_URL}resume.pdf`} download>
                 {profile.resumeLabel}
               </a>
             </div>
